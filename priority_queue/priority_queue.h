@@ -5,6 +5,7 @@ namespace kf {
             int size_;
              priority_queue();
              int size();
+             bool empty();
         private:
     };
 }

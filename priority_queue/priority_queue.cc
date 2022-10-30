@@ -9,4 +9,8 @@ namespace kf
     int priority_queue::size(){
         return size_;
     }
+
+    bool priority_queue::empty(){
+        return (size_==0) ? true : false;
+    }
 }
