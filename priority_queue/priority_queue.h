@@ -2,7 +2,6 @@
 namespace kf {
     class priority_queue {
         public:
-            int size_;
             priority_queue();
             int size();
             int capacity();
@@ -12,6 +11,6 @@ namespace kf {
         private:
             int *data;
             int capacity_;
-
+            int size_;
     };
 }
