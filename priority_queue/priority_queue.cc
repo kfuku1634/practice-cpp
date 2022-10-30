@@ -1,7 +1,12 @@
 #include "priority_queue.h"
 
-namespace kf {
+namespace kf 
+{
+    priority_queue::priority_queue(){
+        size_ = 0;
+    };
+
     int priority_queue::size(){
-        return 0;
+        return size_;
     }
 }
