@@ -17,6 +17,16 @@ namespace kf
         malloc_data(capacity_);
     }
 
+    vector::vector(std::initializer_list<int> init){
+        size_ = init.size();
+        capacity_ = size_;
+        malloc_data(size_);
+        int n=0; for( auto a: init ){
+            data[n] = a;
+            n++;
+        }
+    }
+
     vector::~vector(){
         free(data);
     }
@@ -53,4 +63,20 @@ namespace kf
         return data[i];
     }
 
+    int &vector::back(){
+        return data[(size_-1)];
+    }
+
+    void vector::pop_back(){
+        size_--;
+        data[size_] = 0;
+    }
+
+    int *vector::begin(){
+        return data;
+    }
+
+    int *vector::end(){
+        return &data[(size_-1)];
+    }
 }

@@ -11,5 +11,19 @@ TEST(VectorTest, VectorPush) {
   for( int i=0; i < 1000; i++){
     EXPECT_EQ(vec.at(i), i);
   }
+  for( int i=0; i < 1000; i++){
+    int& x=vec.back();
+    EXPECT_EQ(x, 999 - i);
+    vec.pop_back();
+  }
+
 }
 
+TEST(VectorTest, VectorIter){
+    kf::vector vec = {1,2,3,4,5};
+    int n = 0;
+    for (auto it = vec.begin(); it != vec.end(); ++it) {
+        n++;
+        EXPECT_EQ(*it, n);
+    }
+}
