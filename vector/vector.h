@@ -7,7 +7,7 @@ namespace kf {
             vector(int);
             vector(std::initializer_list<int> init);
             ~vector();
-            int size();
+            int size() const;
             int capacity();
             bool empty();
             void push_back(int);
@@ -17,6 +17,7 @@ namespace kf {
             void pop_back();
             int *begin();
             int *end();
+            bool operator == ( const vector& ) const;
         private:
             int capacity_;
             int size_;

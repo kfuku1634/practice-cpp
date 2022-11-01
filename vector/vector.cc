@@ -1,3 +1,4 @@
+#include <iostream>
 #include <malloc/_malloc.h>
 #include <memory>
 #include <cstdlib>
@@ -31,12 +32,13 @@ namespace kf
         free(data);
     }
 
-    int vector::size(){
+    int vector::size() const{
         return size_;
     }
 
     void vector::malloc_data(int size){
         data = (int*)malloc(sizeof(int)*size);
+        std::cout << data << std::endl;
     }
 
     int vector::capacity(){
@@ -78,5 +80,10 @@ namespace kf
 
     int *vector::end(){
         return &data[(size_-1)];
+    }
+
+    bool vector::operator == ( const vector &vec_oth ) const {
+        if ( this->size() != vec_oth.size() ) { return false; }
+        return true;
     }
 }

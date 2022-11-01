@@ -27,3 +27,11 @@ TEST(VectorTest, VectorIter){
         EXPECT_EQ(*it, n);
     }
 }
+
+TEST(VectorTest, VectorEqual){
+    kf::vector vec1 = {1,2,3,4,5};
+    kf::vector vec2 = {1,2,3,4,5};
+
+    EXPECT_EQ( vec1, vec2 );
+
+}
