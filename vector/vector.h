@@ -82,8 +82,12 @@ namespace kf {
 
             bool operator == ( const vector &vec_oth ) const {
                 if ( this->size() != vec_oth.size() ) { return false; }
+                for(int i=0; i < this->size(); i++ ){
+                    if ( this->data[i] != vec_oth.data[i] ) { return false;}
+                }
                 return true;
             }
+
         private:
             int capacity_;
             int size_;

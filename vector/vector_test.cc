@@ -33,7 +33,10 @@ TEST(VectorTest, VectorEqual){
     kf::vector<int> vec1 = {1,2,3,4,5};
     kf::vector<int> vec2 = {1,2,3,4,5};
 
-    EXPECT_EQ( vec1, vec2 );
+    EXPECT_TRUE( vec1 == vec2 );
+
+    kf::vector<int> vec3 = {1,1,1,1,1};
+    EXPECT_FALSE( vec1 == vec3 );
 
 }
 
