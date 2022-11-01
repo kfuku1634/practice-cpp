@@ -9,7 +9,7 @@ TEST(VectorTest, VectorPush) {
   for( int i=0; i < 1000; i++){
       vec.push_back(i);
   }
-  for( int i=0; i < 1000; i++){
+  for( int i=0; i < 10; i++){
     EXPECT_EQ(vec.at(i), i);
   }
   for( int i=0; i < 1000; i++){
@@ -45,5 +45,7 @@ TEST(VectorTest, VectorVariousType){
     kf::vector<std::string> vec2 = {"a", "b", "c"};
 
     EXPECT_EQ( vec1, vec2 );
+    EXPECT_EQ( vec1.back(), "c" );
+    EXPECT_EQ( vec1.at(1), "b" );
 
 }

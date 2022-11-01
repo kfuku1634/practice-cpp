@@ -48,7 +48,8 @@ namespace kf {
             }
 
             void resize(){
-                data = (int*)realloc(data, capacity_ * 2 );
+                capacity_ *= 2;
+                data = (int*)realloc(data, (sizeof(T) * capacity_ ));
             }
 
             void push_back(int x){
@@ -59,11 +60,11 @@ namespace kf {
                 size_++;
             }
 
-            int at(int i){
+            T at(int i){
                 return data[i];
             }
 
-            int &back(){
+            T &back(){
                 return data[(size_-1)];
             }
 

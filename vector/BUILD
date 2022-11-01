@@ -8,4 +8,5 @@ cc_test(
 cc_library(
   name = "vector",
   hdrs = ["vector.h"],
+  visibility = ["//priority_queue:__pkg__"],
 )
