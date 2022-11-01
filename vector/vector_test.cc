@@ -49,3 +49,17 @@ TEST(VectorTest, VectorVariousType){
     EXPECT_EQ( vec1.at(1), "b" );
 
 }
+
+TEST(VectorTest, VectorInsert){
+    kf::vector<std::string> vec = {"a", "b", "c"};
+
+    vec.insert(1, "d");
+    EXPECT_EQ( vec.at(1), "d" );
+    vec.insert(0, "k");
+    EXPECT_EQ( vec.at(0), "k" );
+    vec.insert(4, "n");
+    EXPECT_EQ( vec.at(4), "n" );
+}
+
+
+

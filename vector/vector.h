@@ -49,13 +49,11 @@ namespace kf {
 
             void resize(){
                 capacity_ *= 2;
-                data = (int*)realloc(data, (sizeof(T) * capacity_ ));
+                data = (T*)realloc(data, (sizeof(T) * capacity_ ));
             }
 
             void push_back(int x){
-                if( size_ == capacity_ ){
-                    resize();
-                }
+                if( is_full() == true ){ resize(); }
                 data[size_] = x;
                 size_++;
             }
@@ -73,12 +71,12 @@ namespace kf {
                 data[size_] = 0;
             }
 
-            int *begin(){
+            T *begin(){
                 return data;
             }
 
-            int *end(){
-                return &data[(size_-1)];
+            T *end(){
+                return &data[(size_)];
             }
 
             bool operator == ( const vector &vec_oth ) const {
@@ -89,12 +87,34 @@ namespace kf {
                 return true;
             }
 
+            void insert(int index, T x){
+                if ( is_full() == true ){ resize(); }
+                for(int i=size(); i != index; i-- ){
+                    data[i] = data[i-1];
+                }
+                data[index] = x;
+                size_++;
+            }
+
+            void debug_print(){
+                for (auto it = begin(); it != end(); it++) {
+                    std::cout << *it << std::endl;
+                }
+                std::cout << std::endl;
+            }
+
         private:
             int capacity_;
             int size_;
             T *data;
             void malloc_data(int size){
                 data = (T*)malloc(sizeof(T)*size);
+            }
+            bool is_full(){
+                if(size_ == capacity_){
+                    return true;
+                }
+                return false;
             }
     };
 }
