@@ -9,4 +9,6 @@ cc_library(
   name = "priority_queue",
   srcs = ["priority_queue.cc"],
   hdrs = ["priority_queue.h"],
+  deps = ["//vector:vector"]
 )
+
