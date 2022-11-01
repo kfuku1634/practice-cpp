@@ -7,6 +7,5 @@ cc_test(
 
 cc_library(
   name = "vector",
-  srcs = ["vector.cc"],
   hdrs = ["vector.h"],
 )
