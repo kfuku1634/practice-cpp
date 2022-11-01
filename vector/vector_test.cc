@@ -1,8 +1,9 @@
 #include <gtest/gtest.h>
+#include <string>
 #include "vector.h"
 
 TEST(VectorTest, VectorPush) {
-  kf::vector vec;
+  kf::vector<int> vec;
   EXPECT_EQ(vec.size(), 0);
   EXPECT_EQ(vec.empty(), true);
   for( int i=0; i < 1000; i++){
@@ -20,7 +21,7 @@ TEST(VectorTest, VectorPush) {
 }
 
 TEST(VectorTest, VectorIter){
-    kf::vector vec = {1,2,3,4,5};
+    kf::vector<int> vec = {1,2,3,4,5};
     int n = 0;
     for (auto it = vec.begin(); it != vec.end(); ++it) {
         n++;
@@ -29,8 +30,16 @@ TEST(VectorTest, VectorIter){
 }
 
 TEST(VectorTest, VectorEqual){
-    kf::vector vec1 = {1,2,3,4,5};
-    kf::vector vec2 = {1,2,3,4,5};
+    kf::vector<int> vec1 = {1,2,3,4,5};
+    kf::vector<int> vec2 = {1,2,3,4,5};
+
+    EXPECT_EQ( vec1, vec2 );
+
+}
+
+TEST(VectorTest, VectorVariousType){
+    kf::vector<std::string> vec1 = {"a", "b", "c"};
+    kf::vector<std::string> vec2 = {"a", "b", "c"};
 
     EXPECT_EQ( vec1, vec2 );
 
