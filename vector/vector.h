@@ -52,7 +52,7 @@ namespace kf {
                 data = (T*)realloc(data, (sizeof(T) * capacity_ ));
             }
 
-            void push_back(int x){
+            void push_back(T x){
                 if( is_full() == true ){ resize(); }
                 data[size_] = x;
                 size_++;

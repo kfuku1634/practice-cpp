@@ -48,6 +48,8 @@ TEST(VectorTest, VectorVariousType){
     EXPECT_EQ( vec1.back(), "c" );
     EXPECT_EQ( vec1.at(1), "b" );
 
+    vec1.push_back("d");
+
 }
 
 TEST(VectorTest, VectorInsert){
