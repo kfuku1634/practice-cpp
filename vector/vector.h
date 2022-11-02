@@ -24,7 +24,8 @@ namespace kf {
                 size_ = init.size();
                 capacity_ = size_;
                 malloc_data(size_);
-                int n=0; for( auto a: init ){
+                int n=0;
+                for( auto a: init ){
                     data[n] = a;
                     n++;
                 }
