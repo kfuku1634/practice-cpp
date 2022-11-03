@@ -64,4 +64,16 @@ TEST(VectorTest, VectorInsert){
 }
 
 
+TEST(VectorTest, VectorInsertWithFirstElement){
+    kf::vector<std::string> vec;
 
+    vec.insert(0, "b");
+    vec.insert(0, "a");
+    EXPECT_EQ( vec.back(), "b" );
+}
+
+TEST(VectorTest, VectorPushBackWithFirstElement){
+    kf::vector<std::string> vec;
+    vec.push_back("b");
+    EXPECT_EQ( vec.back(), "b" );
+}

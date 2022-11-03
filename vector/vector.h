@@ -1,3 +1,4 @@
+#include <cstring>
 #include <initializer_list>
 #include <iostream>
 #include <malloc/_malloc.h>
@@ -55,7 +56,8 @@ namespace kf {
 
             void push_back(T x){
                 if( is_full() == true ){ resize(); }
-                data[size_] = x;
+                // data[size_] = x;
+                memcpy( &data[size_], &x, sizeof(T));
                 size_++;
             }
 
@@ -69,7 +71,6 @@ namespace kf {
 
             void pop_back(){
                 size_--;
-                data[size_] = 0;
             }
 
             T *begin(){
@@ -93,7 +94,8 @@ namespace kf {
                 for(int i=size(); i != index; i-- ){
                     data[i] = data[i-1];
                 }
-                data[index] = x;
+                //(data+index) = p_tmp;
+                memcpy( &data[index], &x, sizeof(T));
                 size_++;
             }
 
@@ -110,6 +112,7 @@ namespace kf {
             T *data;
             void malloc_data(int size){
                 data = (T*)malloc(sizeof(T)*size);
+                if ( data == NULL ){ exit( EXIT_FAILURE ); }
             }
             bool is_full(){
                 if(size_ == capacity_){
