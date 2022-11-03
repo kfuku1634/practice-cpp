@@ -1,5 +1,15 @@
 #include <gtest/gtest.h>
 #include "priority_queue.h"
+#include <string>
+
+TEST(PriorityQueueTest, PriorityQueueString) {
+  kf::priority_queue<std::string> pq;
+
+  pq.push("b");
+  pq.push("a");
+  EXPECT_EQ(pq.top(), "b");
+  
+}
 
 TEST(PriorityQueueTest, PriorityQueueInt) {
   kf::priority_queue<int> pq;
